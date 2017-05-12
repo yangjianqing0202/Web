@@ -14,6 +14,107 @@ window.onload = function ()
     var aImgDate = oDivClock.getElementsByTagName('img');
     var oDivWeek = document.getElementById('week');
     var aImgWeek = oDivWeek.getElementsByTagName('img');
+    var oDivStart = document.getElementById('main01');
+    var aUlSmall = getByClass(oDivStart, 'small_img')[0];
+    var aLiSmall = aUlSmall.getElementsByTagName('li');
+    var aUlBig = getByClass(oDivStart, 'big_img')[0];
+    var aLiBig = aUlBig.getElementsByTagName('li');
+    var PrevBtn = getByClass(oDivStart, 'button_prev')[0];
+    var NextBtn =  getByClass(oDivStart, 'button_next')[0];
+    var imgLength = getByClass(oDivStart, 'length')[0];
+    var now = 0;
+    var nowZIndex = 2;
+
+    aUlSmall.style.width = aLiSmall.length * aLiSmall[0].offsetWidth + 'px';
+    imgLength.innerHTML = '1/' + aLiSmall.length;
+
+    for (var i=0; i<aLiSmall.length; i++)
+    {
+        aLiSmall[i].index = i;
+        aLiSmall[i].onclick = function ()
+        {
+            if (now == this.index) return;
+            now = this.index;
+            getStart ();
+            console.log(now)
+        };
+
+        aLiSmall[i].onmouseover = function ()
+        {
+            startMove (this, {opacity: 100});
+        };
+        aLiSmall[i].onmouseout = function ()
+        {
+            if (this.index !== now)
+            {
+                startMove (this, {opacity: 60});
+            }
+        };
+    }
+
+    function getStart ()
+    {
+        aLiBig[now].style.zIndex = nowZIndex ++;
+
+        for (var i=0; i<aLiBig.length; i++)
+        {
+            aLiBig[i].style.left = (aLiBig[i].offsetLeft - 1030)+ 'px'
+        }
+        startMove(aLiBig[now],{left: 5});
+
+        for (var a=0; a<aLiSmall.length; a++)
+        {
+            startMove(aLiSmall[a],{opacity: 60})
+        }
+        startMove(aLiSmall[now],{opacity: 100});
+
+        if (now == 0)
+        {
+            startMove(aUlSmall, {left: 0})
+        }
+        else if (now == aLiSmall.length - 1)
+        {
+            startMove(aUlSmall, {left: -(now-2) * aLiSmall[0].offsetWidth});
+        }
+        else
+        {
+            startMove(aUlSmall, {left: -(now-1) * aLiSmall[0].offsetWidth});
+        }
+        imgLength.innerHTML = (now+1)+ '/' + aLiSmall.length;
+    }
+
+    PrevBtn.onclick = function()
+    {
+        now--;
+        if (now == -1)
+        {
+            now = aLiSmall.length - 1;
+        }
+        getStart();
+        console.log(now)
+    };
+    NextBtn.onclick = function()
+    {
+        now++;
+        if (now == aLiSmall.length)
+        {
+            now = 0
+        }
+        getStart();
+        console.log(now)
+    };
+
+    var timer = setInterval(NextBtn.onclick,5000);
+
+    oDivStart.onmouseover = function ()
+    {
+        clearInterval(timer)
+    };
+
+    oDivStart.onmouseout = function ()
+    {
+        timer = setInterval(NextBtn.onclick,5000);
+    };
 
     function getClock ()
     {

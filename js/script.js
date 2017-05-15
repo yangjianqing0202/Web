@@ -8,6 +8,26 @@ var weekName =
         'six',
         'seven'
     ];
+
+var aImgTitle =
+    [
+        { title: '北京4日游' },
+        { title: '巴布罗生态谷1日游' }
+    ];
+
+var imgName =
+    [
+        { name: '故宫广场前，蓝次夫妇'},
+        { name: '依然是故宫，膀子夫妇'},
+        { name: '天安门广场前'},
+        { name: '鸟巢四个人合影'},
+        { name: '水立方四个人合影'},
+        { name: '水立方蓝次和膀子'},
+        { name: '北大还是清华的忘了'},
+        { name: '蓝次和膀子回眸一笑'}
+    ];
+
+
 window.onload = function ()
 {
     var oDivClock = document.getElementById('clock');
@@ -22,11 +42,17 @@ window.onload = function ()
     var PrevBtn = getByClass(oDivStart, 'button_prev')[0];
     var NextBtn =  getByClass(oDivStart, 'button_next')[0];
     var imgLength = getByClass(oDivStart, 'length')[0];
+    var imgTxt = getByClass(oDivStart,'text')[0];
+    var imgTitle = getByClass(oDivStart,'title')[0];
     var now = 0;
     var nowZIndex = 2;
+    var oldWidth = null;
+
 
     aUlSmall.style.width = aLiSmall.length * aLiSmall[0].offsetWidth + 'px';
     imgLength.innerHTML = '1/' + aLiSmall.length;
+    imgTitle.innerHTML = aImgTitle[0].title;
+    imgTxt.innerHTML = imgName[0].name;
 
     for (var i=0; i<aLiSmall.length; i++)
     {
@@ -36,7 +62,7 @@ window.onload = function ()
             if (now == this.index) return;
             now = this.index;
             getStart ();
-            console.log(now)
+
         };
 
         aLiSmall[i].onmouseover = function ()
@@ -55,18 +81,25 @@ window.onload = function ()
     function getStart ()
     {
         aLiBig[now].style.zIndex = nowZIndex ++;
-
         for (var i=0; i<aLiBig.length; i++)
         {
-            aLiBig[i].style.left = (aLiBig[i].offsetLeft - 1030)+ 'px'
+            oldWidth = aLiBig[i].offsetWidth;
         }
-        startMove(aLiBig[now],{left: 5});
+            aLiBig[now].style.width = 0 ;
+
+        startMove(aLiBig[now],{ width: oldWidth});
 
         for (var a=0; a<aLiSmall.length; a++)
         {
             startMove(aLiSmall[a],{opacity: 60})
         }
         startMove(aLiSmall[now],{opacity: 100});
+
+        imgLength.innerHTML = (now+1)+ '/' + aLiSmall.length;
+        imgTxt.innerHTML = imgName[now].name;
+        imgTxt.style.opacity = imgLength.style.opacity = '0';
+        startMove(imgTxt,{ opacity: 100});
+        startMove(imgLength,{ opacity: 100});
 
         if (now == 0)
         {
@@ -80,7 +113,6 @@ window.onload = function ()
         {
             startMove(aUlSmall, {left: -(now-1) * aLiSmall[0].offsetWidth});
         }
-        imgLength.innerHTML = (now+1)+ '/' + aLiSmall.length;
     }
 
     PrevBtn.onclick = function()
@@ -141,7 +173,6 @@ window.onload = function ()
         {
             aImgWeek[a].src = 'img/' + weekName[str2.charAt(a)] + '.png';
         }
-
     }
     setInterval(getClock, 1000);
     getClock ();

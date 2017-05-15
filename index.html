@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="js/move.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/google_map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtif_55BBHAe8Agti2k1TTnjMKNsGlNrI&callback=initMap"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 </head>
 <body>
@@ -16,7 +18,7 @@
                     <a href="#"><img src="img/logo.png" /></a>
                 </div>
                 <div class="title">
-                    <h2>这里是照片的标题</h2>
+                    <h2>这里是相册的标题</h2>
                 </div>
             </div>
             <div class="header_right">
@@ -44,14 +46,22 @@
             <div class="big_box">
                 <ul class="big_img">
                     <div class="button_left">
-                        <div class="button_prev"></div>
+                        <div class="button_prev">
+                            <img src="img/left.png" />
+                        </div>
                         <div class="filling"></div>
                     </div>
                     <div class="button_right">
-                        <div class="button_next"></div>
+                        <div class="button_next">
+                            <img src="img/right.png" />
+                        </div>
                         <div class="filling"></div>
                     </div>
-                    <li><img src="img/img1.jpg" alt=""/></li>
+                    <div class="info_bg">
+                        <p class="text">天安门广场前，蓝次夫妇</p>
+                        <p class="length">图片数量</p>
+                    </div>
+                    <li class="big_one"><img src="img/img1.jpg" alt=""/></li>
                     <li><img src="img/img2.jpg" alt=""/></li>
                     <li><img src="img/img3.jpg" alt=""/></li>
                     <li><img src="img/img4.jpg" alt=""/></li>
@@ -60,10 +70,6 @@
                     <li><img src="img/img7.jpg" alt=""/></li>
                     <li><img src="img/img8.jpg" alt=""/></li>
                 </ul>
-                <div class="info_bg">
-                    <p class="text">图片说明</p>
-                    <p class="length">图片数量</p>
-                </div>
             </div>
             <div class="small_box">
                 <ul class="small_img">
@@ -79,8 +85,9 @@
             </div>
         </div>
     </div>
-    <footer>
-
-    </footer>
+    <div class="google_box">
+        <div class="google_map" id="map"></div>
+        <!--https://mapstyle.withgoogle.com/-->
+    </div>
 </body>
 </html>

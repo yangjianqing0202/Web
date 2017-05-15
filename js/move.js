@@ -26,7 +26,7 @@ function startMove (obj, json, fnEnd)
             {
                 cur = parseInt (getStyle (obj,attr));/*其他运动框架*/
             }
-            var speed = (json[attr] - cur)/6;
+            var speed = (json[attr] - cur)/3;
             speed = speed>0?Math.ceil(speed):Math.floor(speed);
 
             if(cur!=json[attr])

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>四个摆子加一个嗨者</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="js/move.js"></script>
+    <script type="text/javascript" src="js/picture.js"></script>
+    <script type="text/javascript" src="js/clock.js"></script>
+    <script type="text/javascript" src="js/google_map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtif_55BBHAe8Agti2k1TTnjMKNsGlNrI&callback=initMap"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+</head>
+<body>
+    <header>
+        <div class="header_box">
+            <div class="header_left">
+                <div class="logo">
+                    <a href="#"><img src="img/logo.png" /></a>
+                </div>
+                <div class="title">
+                    <h2>这里是相册的标题</h2>
+                </div>
+            </div>
+            <div class="header_right">
+                <div class="clock" id="clock">
+                    <div class="date">
+                        <img class="clock_num" src="img/0.png" alt="0" /><img class="clock_num" src="img/0.png" alt="0" /><img class="clock_num" src="img/0.png" alt="0" /><img class="clock_num" src="img/0.png" alt="0" /><p>年</p>
+                        <img class="clock_num" src="img/0.png" alt="0" /><img class="clock_num" src="img/0.png" alt="0" /><p>月</p>
+                        <img class="clock_num" src="img/0.png" alt="0" /><img class="clock_num" src="img/0.png" alt="0" /><p>日</p>
+                    </div>
+                    <div class="time">
+                        <img class="clock_num" src="img/0.png" alt="0" /><img class="clock_num" src="img/0.png" alt="0" /><p>:</p>
+                        <img class="clock_num" src="img/0.png" alt="0" /><img class="clock_num" src="img/0.png" alt="0" /><p>:</p>
+                        <img class="clock_num" src="img/0.png" alt="0" /><img class="clock_num" src="img/0.png" alt="0" />
+                    </div>
+                    <div class="week" id="week">
+                        <p>星期</p>
+                        <img class="clock_num" src="img/one.png" alt="one" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="pic_main01">
+        <div class="pic_box" id="main01">
+            <div class="big_box">
+                <ul class="big_img">
+                    <div class="button_left">
+                        <div class="button_prev">
+                            <img src="img/arrow_left.png" />
+                        </div>
+                        <div class="filling"></div>
+                    </div>
+                    <div class="button_right">
+                        <div class="button_next">
+                            <img src="img/arrow_right.png" />
+                        </div>
+                        <div class="filling"></div>
+                    </div>
+                    <div class="info_bg">
+                        <p class="text">天安门广场前，蓝次夫妇</p>
+                        <p class="length">图片数量</p>
+                    </div>
+                    <li class="big_one"><img src="pic_img/img1.jpg" alt=""/></li>
+                    <li><img src="pic_img/img2.jpg" alt=""/></li>
+                    <li><img src="pic_img/img3.jpg" alt=""/></li>
+                    <li><img src="pic_img/img4.jpg" alt=""/></li>
+                    <li><img src="pic_img/img5.jpg" alt=""/></li>
+                    <li><img src="pic_img/img6.jpg" alt=""/></li>
+                    <li><img src="pic_img/img7.jpg" alt=""/></li>
+                    <li><img src="pic_img/img8.jpg" alt=""/></li>
+                </ul>
+            </div>
+            <div class="small_box">
+                <ul class="small_img">
+                    <li><img src="pic_img/img1.jpg" alt=""/></li>
+                    <li><img src="pic_img/img2.jpg" alt=""/></li>
+                    <li><img src="pic_img/img3.jpg" alt=""/></li>
+                    <li><img src="pic_img/img4.jpg" alt=""/></li>
+                    <li><img src="pic_img/img5.jpg" alt=""/></li>
+                    <li><img src="pic_img/img6.jpg" alt=""/></li>
+                    <li><img src="pic_img/img7.jpg" alt=""/></li>
+                    <li><img src="pic_img/img8.jpg" alt=""/></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="google_box">
+        <div class="google_map" id="map"></div>
+        <!--https://mapstyle.withgoogle.com/-->
+    </div>
+</body>
+</html>

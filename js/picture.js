@@ -1,13 +1,3 @@
-var weekName =
-    [
-        'one',
-        'two',
-        'three',
-        'four',
-        'five',
-        'six',
-        'seven'
-    ];
 
 var aImgTitle =
     [
@@ -27,13 +17,7 @@ var imgName =
         { name: '蓝次和膀子回眸一笑'}
     ];
 
-
-window.onload = function ()
-{
-    var oDivClock = document.getElementById('clock');
-    var aImgDate = oDivClock.getElementsByTagName('img');
-    var oDivWeek = document.getElementById('week');
-    var aImgWeek = oDivWeek.getElementsByTagName('img');
+window.addEventListener("load", function(){
     var oDivStart = document.getElementById('main01');
     var aUlSmall = getByClass(oDivStart, 'small_img')[0];
     var aLiSmall = aUlSmall.getElementsByTagName('li');
@@ -47,8 +31,7 @@ window.onload = function ()
     var now = 0;
     var nowZIndex = 2;
     var oldWidth = null;
-
-
+    btnSpeed = 10;
     aUlSmall.style.width = aLiSmall.length * aLiSmall[0].offsetWidth + 'px';
     imgLength.innerHTML = '1/' + aLiSmall.length;
     imgTitle.innerHTML = aImgTitle[0].title;
@@ -62,7 +45,6 @@ window.onload = function ()
             if (now == this.index) return;
             now = this.index;
             getStart ();
-
         };
 
         aLiSmall[i].onmouseover = function ()
@@ -85,7 +67,7 @@ window.onload = function ()
         {
             oldWidth = aLiBig[i].offsetWidth;
         }
-            aLiBig[now].style.width = 0 ;
+        aLiBig[now].style.width = 0 ;
 
         startMove(aLiBig[now],{ width: oldWidth});
 
@@ -94,6 +76,7 @@ window.onload = function ()
             startMove(aLiSmall[a],{opacity: 60})
         }
         startMove(aLiSmall[now],{opacity: 100});
+        console.log(btnSpeed);
 
         imgLength.innerHTML = (now+1)+ '/' + aLiSmall.length;
         imgTxt.innerHTML = imgName[now].name;
@@ -123,7 +106,7 @@ window.onload = function ()
             now = aLiSmall.length - 1;
         }
         getStart();
-        console.log(now)
+
     };
     NextBtn.onclick = function()
     {
@@ -133,11 +116,10 @@ window.onload = function ()
             now = 0
         }
         getStart();
-        console.log(now)
+
     };
 
     var timer = setInterval(NextBtn.onclick,5000);
-
     oDivStart.onmouseover = function ()
     {
         clearInterval(timer)
@@ -147,45 +129,6 @@ window.onload = function ()
     {
         timer = setInterval(NextBtn.onclick,5000);
     };
+});
 
-    function getClock ()
-    {
-        var oDate = new Date;
-        var iYear = oDate.getYear();
-        var iMonth = oDate.getMonth();
-        var iDay = oDate.getDate();
-        var iHour = oDate.getHours();
-        var iMin = oDate.getMinutes();
-        var iSec = oDate.getSeconds();
-        var iWeek = (oDate.getDay()+6)%7;
-        if (iYear < 1900)
-        {
-            iYear += 1900;
-        }
-        var str1 = iYear + toDouble(iMonth+1) + toDouble(iDay) + toDouble(iHour) + toDouble(iMin) + toDouble(iSec);
-        var str2 = "" + iWeek;
 
-        for (var i=0; i<aImgDate.length; i++)
-        {
-            aImgDate[i].src = 'img/' + str1.charAt(i) + '.png';
-        }
-        for (var a=0; a<aImgWeek.length; a++)
-        {
-            aImgWeek[a].src = 'img/' + weekName[str2.charAt(a)] + '.png';
-        }
-    }
-    setInterval(getClock, 1000);
-    getClock ();
-
-    function toDouble (num)
-    {
-        if (num < 10)
-        {
-            return  '0' + num
-        }
-        else
-        {
-            return '' + num
-        }
-    }
-};

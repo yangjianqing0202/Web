@@ -28,7 +28,7 @@ window.addEventListener("load",function(){
         {
             oPpUl.style.display = 'block';
             startMove(oPpUl, { height:189,opacity: 100});
-            console.log(btnSpeed);
+
 
         };
         oPpLi.onmouseout = function ()
@@ -36,7 +36,7 @@ window.addEventListener("load",function(){
             startMove(oPpUl,{ height:0,opacity: 0},function(){
                 oPpUl.style.display = 'none';
             });
-            console.log(btnSpeed);
+
         };
 
         oayLi.onmouseover = function ()

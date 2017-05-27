@@ -42,7 +42,7 @@ header { width:100%; height:auto; overflow: hidden;  background: #042632; }
 .big_box li { position:absolute; top:0; left:0; z-index: 0;}
 .big_box .big_one { z-index: 1;}
 .big_box li img { max-width:100%;}
-.big_box .info_bg {font-size:26px; color:white; width:100%; text-align:center; background: #242626; filter: alpha(opacity=60); opacity: 0.6; position: absolute; top:0; left:0; z-index: 99999; }
+.big_box .info_bg {font-size:26px; color:white; width:100%; text-align:center; background: #242626; filter: alpha(opacity=60); opacity: 0.6; position: absolute; top:0; left:0; z-index: 99999999; }
 .big_box .info_bg .text { width: 50%; text-align: left; padding:5px; }
 .big_box .info_bg .length {  position: absolute; top:50%; right:5px;
     -webkit-transform:translate(0%, -50%);
@@ -51,9 +51,9 @@ header { width:100%; height:auto; overflow: hidden;  background: #042632; }
     -o-transform:translate(0%, -50%);
     transform:translate(0%, -50%);
 }
-.big_box .button_left { position:absolute; top:0; left:0; z-index: 99999; width:50%;  }
+.big_box .button_left { position:absolute; top:0; left:0; z-index: 99999999; width:50%;  }
 .big_box .filling { margin-bottom: 112.6% }
-.big_box .button_right { position:absolute; top:0; right:0; z-index: 99999; width:50%; }
+.big_box .button_right { position:absolute; top:0; right:0; z-index: 99999999; width:50%; }
 .big_box .button_prev {
     cursor: pointer;
     position: absolute;
@@ -165,7 +165,7 @@ header { width:100%; height:auto; overflow: hidden;  background: #042632; }
 }
 .menu_main .dadli:hover { background:#41c0cf;}
 .menu_main .dadli:hover .dadli_a {  color:#1d10cd;  }
-.menu2 { position:absolute; left:54.5%; top:90px; background: #06014a; text-align: center; width:110%; height:0; z-index: 9999;
+.menu2 { position:absolute; left:54.5%; top:90px; background: #06014a; text-align: center; width:110%; height:0; z-index: 99999999999;
     -webkit-transform:translate(-50%, 0%);
     -moz-transform:translate(-50%, 0%);
     -ms-transform:translate(-50%, 0%);
@@ -191,7 +191,7 @@ header { width:100%; height:auto; overflow: hidden;  background: #042632; }
 .menu2 .menu2_li:hover .menu2_a{ color:#1d10cd;}
 
 .activity_ul .balcony_bbq { position: relative; }
-.bbq_ul { position:absolute; right:-188px; top:0; background: #06014a; text-align: center; width:110%; height:0; z-index: 9999; }
+.bbq_ul { position:absolute; right:-188px; top:0; background: #06014a; text-align: center; width:110%; height:0; z-index: 99999999999; }
 .bbq_ul .menu3_li {  line-height: 18px; padding:10px 0;
     transition:All 0.5s ease-in-out;
     -webkit-transition:All 0.5s ease-in-out;
@@ -210,21 +210,78 @@ header { width:100%; height:auto; overflow: hidden;  background: #042632; }
 
 .home_main01 { width:100%; height:auto; overflow: hidden;  }
 .people_box { width:1280px; height:auto; overflow: hidden; margin: 20px auto 0; position:relative; }
-.people_box .people_img { position:absolute; top:50px;
+.people_box .people_img { position:absolute; top:100px;
+    -webkit-transform:translate(-100%, 0%);
+    -moz-transform:translate(-100%, 0%);
+    -ms-transform:translate(-100%, 0%);
+    -o-transform:translate(-100%, 0%);
+    transform:translate(-100%, 0%);
+}
+.people_box .wofangimg { left:100px; background: url(pic_img/people_sanguosha_wofang.jpg) ;width:150px; height:210px; background-size:cover; }
+.people_box .shuaziimg { left:100px; background: url(pic_img/people_sanguosha_shuazi.jpg) ;width:150px; height:210px; background-size:cover; }
+.people_box .shipiimg { left:100px; background: url(pic_img/people_sanguosha_shipi.jpg) ;width:150px; height:210px; background-size:cover; }
+.people_box .bangziimg { left:100px;  background: url(pic_img/people_sanguosha_bangzi.jpg) ;width:150px; height:210px; background-size:cover; }
+.people_box .lanciimg { left:100px;  background: url(pic_img/people_sanguosha_lanci.jpg) ;width:150px; height:210px; background-size:cover; }
+
+.people_filling { margin-bottom: 200.6% }
+
+.text_box { width:100%; height:auto; overflow: hidden; margin:0 auto; }
+.text_box p { text-align: left; width:100%; height:50%; font-size: 48px; line-height:135%; letter-spacing:0.5em;
+    writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    *writing-mode: tb-rl;
+}
+
+.people_box .small_img_box { position:absolute; top:10px; left:10px; width:300px; height:0; overflow: hidden;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.people_box .small_img_box .small_icon { width:50px; height:50px; filter: alpha(opacity=0); opacity: 0;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+
+.people_box .small_img_box .wofang { position:absolute; top:50%; left:50%; background: url(pic_img/people_sanguosha_wofang.jpg) no-repeat 0 -10px; background-size:cover;
+    -webkit-transform:translate(-50%, -50%);
+    -moz-transform:translate(-50%, -50%);
+    -ms-transform:translate(-50%, -50%);
+    -o-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+}
+.people_box .small_img_box .shipi { position:absolute; top:1%; left:50%; background: url(pic_img/people_sanguosha_shipi.jpg) no-repeat 0 -10px; background-size:cover;
     -webkit-transform:translate(-50%, 0%);
     -moz-transform:translate(-50%, 0%);
     -ms-transform:translate(-50%, 0%);
     -o-transform:translate(-50%, 0%);
     transform:translate(-50%, 0%);
 }
-.people_box .wofangimg { left:100px; background: url(pic_img/people_sanguosha_wofang.jpg) ;width:150px; height:210px; background-size:cover; }
-.people_box .shuaziimg { left:100px; background: url(pic_img/people_sanguosha_shuazi.jpg) ;width:150px; height:210px; background-size:cover; }
-.people_box .shipiimg { left:100px; background: url(pic_img/people_sanguosha_shipi.jpg) ;width:150px; height:210px; background-size:cover; }
-.people_box .bangziimg { left:100px; background: url(pic_img/people_sanguosha_bangzi.jpg) ;width:150px; height:210px; background-size:cover; }
-.people_box .lanciimg { left:100px; background: url(pic_img/people_sanguosha_lanci.jpg) ;width:150px; height:210px; background-size:cover; }
+.people_box .small_img_box .shuazi { position:absolute; top:50%; right:1%; background: url(pic_img/people_sanguosha_shuazi.jpg) no-repeat 0 -10px; background-size:cover;
+    -webkit-transform:translate(0%, -50%);
+    -moz-transform:translate(0%, -50%);
+    -ms-transform:translate(0%, -50%);
+    -o-transform:translate(0%, -50%);
+    transform:translate(0%, -50%);
 
-.people_filling { margin-bottom: 80.6% }
-.people_box .people_img p { position: absolute; bottom:-50px; width:100%; }
+}
+.people_box .small_img_box .bangzi { position:absolute; bottom:1%; left:50%; background: url(pic_img/people_sanguosha_bangzi.jpg) no-repeat 0 -10px; background-size:cover;
+    -webkit-transform:translate(-50%, 0%);
+    -moz-transform:translate(-50%, 0%);
+    -ms-transform:translate(-50%, 0%);
+    -o-transform:translate(-50%, 0%);
+    transform:translate(-50%, 0%);
+}
+.people_box .small_img_box .lanci { position:absolute; top:50%; left:1%; background: url(pic_img/people_sanguosha_lanci.jpg) no-repeat 0 -10px; background-size:cover;
+    -webkit-transform:translate(0%, -50%);
+    -moz-transform:translate(0%, -50%);
+    -ms-transform:translate(0%, -50%);
+    -o-transform:translate(0%, -50%);
+    transform:translate(0%, -50%);
+}
+
 
 
 

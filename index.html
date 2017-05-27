@@ -11,9 +11,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 </head>
 <body>
-<header class="index_h">
+<header class="index_h" >
     <div class="header_box index_box" id="index_box">
-        <div class="header_left">
+        <div class="header_left" >
             <div class="logo index">
                 <a href="#"><img src="img/logo.png" /></a>
             </div>
@@ -26,7 +26,7 @@
                 <li class="dadli people" id="people">
                     <a class="dadli_a" href="#">问题人物</a>
                     <ul class="menu2 people_ul" id="people_ul" >
-                        <li class="menu2_li wofang">
+                        <li class="menu2_li wofang" >
                             <a class="menu2_a" href="#">我方</a>
                         </li>
                         <li class="menu2_li shuazi">
@@ -80,11 +80,23 @@
 </header>
 <div class="home_main01">
     <div class="people_box" id="people_box" >
-        <div class="people_img wofangimg" id="wofangimg"></div>
-        <div class="people_img shuaziimg" id="shuaziimg"></div>
-        <div class="people_img shipiimg" id="shipiimg"></div>
-        <div class="people_img bangziimg" id="bangziimg"></div>
-        <div class="people_img lanciimg" id="lanciimg"></div>
+        <ul class="text_box">
+            <li><p id="p_text"></p></li>
+        </ul>
+        <div class="small_img_box" id="small_img_box">
+            <div class="small_icon wofang" id="small_wofang"></div>
+            <div class="small_icon shipi" id="small_shipi"></div>
+            <div class="small_icon shuazi" id="small_shuazi"></div>
+            <div class="small_icon bangzi" id="small_bangzi"></div>
+            <div class="small_icon lanci" id="small_lanci"></div>
+        </div>
+        <div id="people_id">
+            <div class="people_img wofangimg" id="wofangimg" style="transform: rotate(0deg)"></div>
+            <div class="people_img shipiimg" id="shipiimg" style="transform: rotate(0deg)"></div>
+            <div class="people_img shuaziimg" id="shuaziimg" style="transform: rotate(0deg)"></div>
+            <div class="people_img bangziimg" id="bangziimg" style="transform: rotate(0deg)"></div>
+            <div class="people_img lanciimg" id="lanciimg" style="transform: rotate(0deg)"></div>
+        </div>
         <div class="people_filling"></div>
     </div>
 </div>
